@@ -45,5 +45,5 @@ esac
 %doc
 
 %changelog
-* Wed Dic 01 2021 Javier Rodriguez <javiercrg@redborder.com> - 0.0.1-1
+* Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com> - 0.0.1-1
 - first spec version

@@ -1,2 +1,2 @@
 # default attributes
-default["memcached"]["redborder-scanner"] = false
+default["redborder-scanner"]["registered"] = false

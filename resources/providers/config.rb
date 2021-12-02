@@ -11,10 +11,41 @@ action :add do
       action :create
     end
 
+    directory "/usr/share/redborder-scanner/conf" do
+      owner "root"
+      group "root"
+      mode 0700
+      action :create
+    end
+
+    link "/etc/redborder-scanner" do
+      to "/usr/share/redborder-scanner/conf"
+    end if !File.exists?"/etc/redborder-scanner"
+
+    template "/etc/sysconfig/rb-scanner-request" do
+      source "rb-scanner-request_sv.erb"
+      owner "root"
+      group "root"
+      mode 0644
+      retries 2
+      notifies :restart, "service[redborder-scanner]", :delayed
+    end
+
+    template "/usr/share/rb-scanner-request/conf/config.json" do
+      source "rb-scanner-request_config.json.erb"
+      owner "root"
+      group "root"
+      mode 0644
+      retries 2
+      variables(:scanner_nodes => scanner_nodes)
+      notifies :restart, "service[redborder-scanner]", :delayed
+    end
+
     service "redborder-scanner" do
       service_name "redborder-scanner"
-      supports :status => true, :reload => true, :restart => true, :start => true, :enable => true
-      action [:enable,:start]
+      ignore_failure true
+      supports :status => true, :restart => true, :enable => true
+      action [:start, :enable]
     end
 
     Chef::Log.info("redborder-scanner has been configured correctly.")
@@ -29,14 +60,21 @@ action :remove do
     logdir = new_resource.logdir
 
     service "redborder-scanner" do
-      supports :stop => true
-      action :stop
+      ignore_failure true
+      supports :status => true, :enable => true
+      action [:stop, :disable]
     end
 
+    %w[ /etc/redborder-scanner].each do |path|
+      directory path do
+        recursive true
+        action :delete
+      end
+    end
     # uninstall package
-    #yum_package "redborder-scanner" do
-    #  action :purge
-    #end
+    yum_package "redborder-scanner" do
+     action :remove
+    end
     #
     Chef::Log.info("redborder-scanner has been deleted correctly.")
   rescue => e
