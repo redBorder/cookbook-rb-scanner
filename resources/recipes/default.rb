@@ -1,8 +1,7 @@
 #
-# Cookbook Name:: memcached
+# Cookbook Name:: rbscanner
 # Recipe:: default
 #
-# redborder 2016
 #
 # AFFERO GENERAL PUBLIC LICENSE V3
 #

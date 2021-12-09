@@ -1,14 +1,18 @@
+# Cookbook Name:: rbscanner
+#
+# Provider:: config
+#
+include Rbscanner::Helper
+
 action :add do
   begin
+    scanner_nodes = new_resource.scanner_nodes
+    rb_webui = new_resource.rb_webui
 
     # install package
-    yum_package "redborder-scanner" do
+    yum_package "rb-scanner-request" do
       action :install
       flush_cache [ :before ]
-    end
-
-    user user do
-      action :create
     end
 
     directory "/usr/share/redborder-scanner/conf" do
@@ -16,11 +20,12 @@ action :add do
       group "root"
       mode 0700
       action :create
+      recursive true
     end
 
     link "/etc/redborder-scanner" do
       to "/usr/share/redborder-scanner/conf"
-    end if !File.exists?"/etc/redborder-scanner"
+    end
 
     template "/etc/sysconfig/rb-scanner-request" do
       source "rb-scanner-request_sv.erb"
@@ -28,15 +33,18 @@ action :add do
       group "root"
       mode 0644
       retries 2
+      cookbook "rbscanner"
+      variables(:rb_webui => rb_webui)
       notifies :restart, "service[redborder-scanner]", :delayed
     end
 
-    template "/usr/share/rb-scanner-request/conf/config.json" do
+    template "/usr/share/redborder-scanner/conf/config.json" do
       source "rb-scanner-request_config.json.erb"
       owner "root"
       group "root"
       mode 0644
       retries 2
+      cookbook "rbscanner"
       variables(:scanner_nodes => scanner_nodes)
       notifies :restart, "service[redborder-scanner]", :delayed
     end
