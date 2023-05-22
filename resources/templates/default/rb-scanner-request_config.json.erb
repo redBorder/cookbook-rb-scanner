@@ -2,7 +2,7 @@
   all_nodes=[]
 
     @scanner_nodes.each do |scanner_node|
-      next unless scanner_node["redborder"]["parent_id"].nil?
+      {% comment %} next unless scanner_node["redborder"]["parent_id"].nil? {% endcomment %}
       node={}
       node[:name] = scanner_node["rbname"] if scanner_node["rbname"]
       node[:uuid] = scanner_node["redborder"]["sensor_uuid"] if scanner_node["redborder"] and scanner_node["redborder"]["sensor_uuid"]
