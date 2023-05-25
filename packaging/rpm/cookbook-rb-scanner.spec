@@ -45,7 +45,7 @@ esac
 %doc
 
 %changelog
-* Mon May 22 2023 Luis J. Blanco Mier <ljblanco@redborder.com> - 
-- Removing manager extra match to release scanner runing on proxy
+* Mon May 22 2023 Luis J. Blanco Mier <ljblanco@redborder.com> - 0.0.2-1
+- parent_id removed from sensor info. Nodes are self aware of either manager or proxy
 * Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com> - 0.0.1-1
 - first spec version
