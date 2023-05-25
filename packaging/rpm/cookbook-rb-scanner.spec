@@ -45,5 +45,7 @@ esac
 %doc
 
 %changelog
+* Mon May 22 2023 Luis J. Blanco Mier <ljblanco@redborder.com> - 
+- Removing manager extra match to release scanner runing on proxy
 * Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com> - 0.0.1-1
 - first spec version
