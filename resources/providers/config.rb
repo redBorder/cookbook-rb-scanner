@@ -10,7 +10,7 @@ action :add do
     rb_webui = new_resource.rb_webui
 
     # install package
-    yum_package "rb-scanner-request" do
+    dnf_package "rb-scanner-request" do
       action :install
       flush_cache [ :before ]
     end
@@ -80,7 +80,7 @@ action :remove do
       end
     end
     # uninstall package
-    yum_package "redborder-scanner" do
+    dnf_package "redborder-scanner" do
      action :remove
     end
     #
