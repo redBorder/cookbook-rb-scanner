@@ -10,7 +10,7 @@ action :add do
     rb_webui = new_resource.rb_webui
 
     # install package
-    yum_package "rb-scanner-request" do
+    dnf_package "rb-scanner-request" do
       action :install
       flush_cache [ :before ]
     end
@@ -80,7 +80,7 @@ action :remove do
       end
     end
     # uninstall package
-    yum_package "redborder-scanner" do
+    dnf_package "redborder-scanner" do
      action :remove
     end
     #
@@ -106,7 +106,7 @@ action :register do #Usually used to register in consul
         action :nothing
       end.run_action(:run)
 
-      node.set["redborder-scanner"]["registered"] = true
+      node.normal["redborder-scanner"]["registered"] = true
     end
     Chef::Log.info("redborder-scanner service has been registered in consul")
   rescue => e
@@ -122,7 +122,7 @@ action :deregister do #Usually used to deregister from consul
         action :nothing
       end.run_action(:run)
 
-      node.set["redborder-scanner"]["registered"] = false
+      node.normal["redborder-scanner"]["registered"] = false
     end
     Chef::Log.info("redborder-scanner service has been deregistered from consul")
   rescue => e
