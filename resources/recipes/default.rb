@@ -1,11 +1,8 @@
-#
-# Cookbook Name:: rbscanner
+# Cookbook:: rbscanner
 # Recipe:: default
-#
-#
-# AFFERO GENERAL PUBLIC LICENSE V3
-#
+# Copyright:: 2024, redborder
+# License:: Affero General Public License, Version 3
 
-rbscanner_config "config" do
+rbscanner_config 'config' do
   action :add
 end
