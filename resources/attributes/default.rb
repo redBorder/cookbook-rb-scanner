@@ -1,2 +1,2 @@
 # default attributes
-default["redborder-scanner"]["registered"] = false
+default['redborder-scanner']['registered'] = false
