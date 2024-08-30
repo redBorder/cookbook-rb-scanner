@@ -55,9 +55,6 @@ action :add do
       action [:start, :enable]
     end
 
-    # Repeat check nmap every chef run
-    node['redborder-scanner']['is_nmap_installed'] = File.exist?('/usr/bin/nmap')
-    
     Chef::Log.info('redborder-scanner has been configured correctly.')
   rescue => e
     Chef::Log.error(e.message)
