@@ -102,7 +102,7 @@ action :register do
         action :nothing
       end.run_action(:run)
 
-      node.normal['redborder-scanner']['registered'] = true
+      node.default['redborder-scanner']['registered'] = true
     end
     Chef::Log.info('redborder-scanner service has been registered in consul')
   rescue => e
@@ -118,7 +118,7 @@ action :deregister do
         action :nothing
       end.run_action(:run)
 
-      node.normal['redborder-scanner']['registered'] = false
+      node.default['redborder-scanner']['registered'] = false
     end
     Chef::Log.info('redborder-scanner service has been deregistered from consul')
   rescue => e

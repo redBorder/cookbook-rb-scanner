@@ -1,4 +1,5 @@
 # Cookbook:: rbscanner
+unified_mode true
 # Resource:: config
 actions :add, :remove, :register, :deregister
 default_action :add
