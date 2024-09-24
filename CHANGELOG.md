@@ -1,6 +1,10 @@
 cookbook-rb-scanner CHANGELOG
 ===============
 
+## 0.0.4
+
+    - [22f68ff] add is_nmap_installed to default and node
+
 ## 0.0.3
 
   - Miguel Negron
