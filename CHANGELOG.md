@@ -1,6 +1,14 @@
 cookbook-rb-scanner CHANGELOG
 ===============
 
+## 0.0.4
+
+  - nilsver
+    - [857c9b3] Merge pull request #10 from redBorder/bugfix/#18446_define_nmap_installed_attr
+  - Luis Blanco
+    - [a527c11] keep it only in default
+    - [22f68ff] add is_nmap_installed to default and node
+
 ## 0.0.3
 
   - Miguel Negron
