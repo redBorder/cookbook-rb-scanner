@@ -23,6 +23,9 @@ chmod -R 0755 %{buildroot}/var/chef/cookbooks/rb-scanner
 install -D -m 0644 README.md %{buildroot}/var/chef/cookbooks/rb-scanner/README.md
 
 %pre
+if [ -d /var/chef/cookbooks/rb-scanner ]; then
+    rm -rf /var/chef/cookbooks/rb-scanner
+fi
 
 %post
 case "$1" in
@@ -36,6 +39,12 @@ case "$1" in
   ;;
 esac
 
+%postun
+# Deletes directory when uninstall the package
+if [ "$1" = 0 ] && [ -d /var/chef/cookbooks/rb-scanner ]; then
+  rm -rf /var/chef/cookbooks/rb-scanner
+fi
+
 %files
 %defattr(0755,root,root)
 /var/chef/cookbooks/rb-scanner
@@ -45,7 +54,11 @@ esac
 %doc
 
 %changelog
-* Mon May 22 2023 Luis J. Blanco Mier <ljblanco@redborder.com> - 0.0.2-1
+* Thu Oct 10 2024 Miguel Negrón <manegron@redborder.com>
+- Add pre and postun
+
+* Mon May 22 2023 Luis J. Blanco Mier <ljblanco@redborder.com>
 - parent_id removed from sensor info. Nodes are self aware of either manager or proxy
-* Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com> - 0.0.1-1
+
+* Wed Dec 01 2021 Javier Rodriguez <javiercrg@redborder.com>
 - first spec version
