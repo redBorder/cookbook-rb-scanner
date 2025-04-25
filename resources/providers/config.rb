@@ -6,7 +6,7 @@ include Rbscanner::Helper
 action :add do
   begin
     scanner_nodes = new_resource.scanner_nodes
-    cdomain = new_resource.cdomain
+    rb_webui = new_resource.rb_webui
 
     # install package
     dnf_package 'rb-scanner-request' do
@@ -33,7 +33,7 @@ action :add do
       mode '0644'
       retries 2
       cookbook 'rbscanner'
-      variables(cdomain: cdomain)
+      variables(rb_webui: rb_webui)
       notifies :restart, 'service[redborder-scanner]', :delayed
     end
 

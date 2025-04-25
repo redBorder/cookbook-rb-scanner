@@ -1,4 +1,5 @@
-RBDOMAIN="webui.<%= @cdomain %>"
+RBDOMAIN="<%= @rb_webui %>.<%= node['redborder']['cdomain']%>"
+RBDOMAIN_URL="https://<%= @rb_webui %>.<%= node['redborder']['cdomain'] %>"
 URL="https://${RBDOMAIN}/api/v1/sensors"
 VULS_SCRIPT="/usr/lib/redborder/bin/rb_scan_vulnerabilities.sh"
 TYPE="proxy"
