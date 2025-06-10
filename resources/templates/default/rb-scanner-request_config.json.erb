@@ -4,15 +4,15 @@
     @scanner_nodes.each do |scanner_node|
       node={}
       node[:name] = scanner_node["rbname"] if scanner_node["rbname"]
-      node[:uuid] = scanner_node["redBorder"]["sensor_uuid"] if scanner_node["redBorder"] and scanner_node["redBorder"]["sensor_uuid"]
-      node[:service_provider] = scanner_node["redBorder"]["service_provider"] if scanner_node["redBorder"] and scanner_node["redBorder"]["service_provider"]
-      node[:service_provider_uuid] = scanner_node["redBorder"]["service_provider_uuid"] if scanner_node["redBorder"] and scanner_node["redBorder"]["service_provider_uuid"]
-      node[:namespace] = scanner_node["redBorder"]["namespace"] if scanner_node["redBorder"] and scanner_node["redBorder"]["namespace"]
-      node[:namespace_uuid] = scanner_node["redBorder"]["namespace_uuid"] if scanner_node["redBorder"] and scanner_node["redBorder"]["namespace_uuid"]
-      node[:organization] = scanner_node["redBorder"]["organization"] if scanner_node["redBorder"] and scanner_node["redBorder"]["organization"]
-      node[:organization_uuid] = scanner_node["redBorder"]["organization_uuid"] if scanner_node["redBorder"] and scanner_node["redBorder"]["organization_uuid"]
-      node[:building] = scanner_node["redBorder"]["building"] if scanner_node["redBorder"] and scanner_node["redBorder"]["building"]
-      node[:building_uuid] = scanner_node["redBorder"]["building_uuid"] if scanner_node["redBorder"] and scanner_node["redBorder"]["building_uuid"]
+      node[:uuid] = scanner_node["redborder"]["sensor_uuid"] if scanner_node["redborder"] and scanner_node["redborder"]["sensor_uuid"]
+      node[:service_provider] = scanner_node["redborder"]["service_provider"] if scanner_node["redborder"] and scanner_node["redborder"]["service_provider"]
+      node[:service_provider_uuid] = scanner_node["redborder"]["service_provider_uuid"] if scanner_node["redborder"] and scanner_node["redborder"]["service_provider_uuid"]
+      node[:namespace] = scanner_node["redborder"]["namespace"] if scanner_node["redborder"] and scanner_node["redborder"]["namespace"]
+      node[:namespace_uuid] = scanner_node["redborder"]["namespace_uuid"] if scanner_node["redborder"] and scanner_node["redborder"]["namespace_uuid"]
+      node[:organization] = scanner_node["redborder"]["organization"] if scanner_node["redborder"] and scanner_node["redborder"]["organization"]
+      node[:organization_uuid] = scanner_node["redborder"]["organization_uuid"] if scanner_node["redborder"] and scanner_node["redborder"]["organization_uuid"]
+      node[:building] = scanner_node["redborder"]["building"] if scanner_node["redborder"] and scanner_node["redborder"]["building"]
+      node[:building_uuid] = scanner_node["redborder"]["building_uuid"] if scanner_node["redborder"] and scanner_node["redborder"]["building_uuid"]
       all_nodes.push(node)
     end
   result = {"sensors" => all_nodes}
