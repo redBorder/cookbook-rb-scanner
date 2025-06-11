@@ -1,9 +1,17 @@
 cookbook-rb-scanner CHANGELOG
 ===============
 
+## 0.0.6
+
+  - nilsver
+    - [b0bb500] update node to normalized hash
+    - [c08c1fb] fix webui domain
+    - [1e2d3be] fix scanner configuration file
+    - [695c5c7] point to webui.cdomain instead webui.service
+
 ## 0.0.5
 
-  - Miguel Negr√≥n
+  - Miguel Negrè´—n
     - [56de04d] Add pre and postun to clean the cookbook
 
 ## 0.0.4
