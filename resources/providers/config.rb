@@ -11,7 +11,6 @@ action :add do
     # install package
     dnf_package 'rb-scanner-request' do
       action :install
-      flush_cache [:before]
     end
 
     directory '/usr/share/redborder-scanner/conf' do
