@@ -1,6 +1,11 @@
 cookbook-rb-scanner CHANGELOG
 ===============
 
+## 0.0.7
+
+  - nilsver
+    - [7f208f7] remove flush cache
+
 ## 0.0.6
 
   - nilsver
@@ -11,7 +16,7 @@ cookbook-rb-scanner CHANGELOG
 
 ## 0.0.5
 
-  - Miguel Negrè´—n
+  - Miguel Negron
     - [56de04d] Add pre and postun to clean the cookbook
 
 ## 0.0.4
