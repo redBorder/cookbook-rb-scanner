@@ -1,6 +1,12 @@
 cookbook-rb-scanner CHANGELOG
 ===============
 
+## 0.0.8
+
+  - nilsver
+    - [9d115c5] Merge pull request #16 from redBorder/bugfix/22186_wrong_cdomain_for_scanner
+    - [01b63f3] point to correct cdomain
+
 ## 0.0.7
 
   - nilsver
