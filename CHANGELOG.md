@@ -1,6 +1,11 @@
 cookbook-rb-scanner CHANGELOG
 ===============
 
+## 0.0.9
+
+  - jnavarrorb
+    - [612a430] Remove executable permissions on non-executable files
+
 ## 0.0.8
 
   - nilsver
