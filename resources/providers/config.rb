@@ -7,6 +7,7 @@ action :add do
   begin
     scanner_nodes = new_resource.scanner_nodes
     rb_webui = new_resource.rb_webui
+    auth_token = new_resource.auth_token
 
     # install package
     dnf_package 'rb-scanner-request' do
@@ -40,10 +41,12 @@ action :add do
       source 'rb-scanner-request_config.json.erb'
       owner 'root'
       group 'root'
-      mode '0644'
+      # Holds the manager API token, so it is not world readable.
+      mode '0600'
+      sensitive true
       retries 2
       cookbook 'rbscanner'
-      variables(scanner_nodes: scanner_nodes)
+      variables(scanner_nodes: scanner_nodes, auth_token: auth_token)
       notifies :restart, 'service[redborder-scanner]', :delayed
     end
 

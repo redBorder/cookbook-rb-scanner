@@ -16,5 +16,6 @@
       all_nodes.push(node)
     end
   result = {"sensors" => all_nodes}
+  result["auth_token"] = @auth_token.to_s
 %>
 <%= JSON.pretty_generate(result) %>
