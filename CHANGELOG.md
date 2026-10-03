@@ -1,6 +1,11 @@
 cookbook-rb-scanner CHANGELOG
 ===============
 
+## 0.0.10
+
+  - manegron
+    - [6222166] Upload cookbook only if opscode-erchef is active
+
 ## 0.0.9
 
   - jnavarrorb
